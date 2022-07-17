@@ -10,14 +10,16 @@ public class MainUI : UI {
 	public class Spectrum {
 		public RectTransform selection;
 		[Label("Index Indicator")] public TextMeshProUGUI indicator;
-		public Button leftButton;
-		public Button rightButton;
+		public Button prevButton;
+		public Button nextButton;
+		public Image hud;
 		[Range(0, 5)] public int index;
 
 		[Serializable]
 		public struct Segment {
 			public string name;
-			public RectTransform area;
+			public RectTransform anchor;
+			public Sprite hud;
 		}
 		public List<Segment> segments;
 
@@ -29,8 +31,9 @@ public class MainUI : UI {
 					return;
 				index = value;
 				var segment = segments[index];
-				selection.position = segment.area.position;
-				selection.sizeDelta = segment.area.sizeDelta;
+				selection.position = segment.anchor.position;
+				selection.SetSize(segment.anchor.rect.size);
+				hud.sprite = segment.hud;
 				indicator.text = segment.name;
 			}
 		}
@@ -38,8 +41,8 @@ public class MainUI : UI {
 		public void Next() => ++Index;
 
 		public void Init() {
-			leftButton.onClick.AddListener(Prev);
-			rightButton.onClick.AddListener(Next);
+			prevButton.onClick.AddListener(Prev);
+			nextButton.onClick.AddListener(Next);
 		}
 	}
 	public Spectrum spectrumSettings;
@@ -73,10 +76,58 @@ public class MainUI : UI {
 	}
 	public Distance distanceSettings;
 
+	[Serializable]
+	public class Guidance {
+		public Button button;
+		public RectTransform box;
+		public TextMeshProUGUI text;
+
+		public bool Visibility {
+			get => box.gameObject.activeSelf;
+			set => box.gameObject.SetActive(value);
+		}
+
+		public void Prompt(string value) {
+			text.text = value;
+			Visibility = true;
+		}
+
+		public void Init() {
+			Visibility = false;
+			button.onClick.AddListener(() => Visibility ^= true);
+		}
+	}
+	public Guidance guidanceSettings;
+
+
+	[Serializable]
+	public class Banner {
+		public Button banner;
+		public TextMeshProUGUI text;
+
+		public bool Visibility {
+			get => banner.gameObject.activeSelf;
+			set => banner.gameObject.SetActive(value);
+		}
+
+		public void Prompt(string value) {
+			text.text = value;
+			Visibility = true;
+		}
+
+		public void Init() {
+			Visibility = false;
+			banner.onClick.AddListener(() => Visibility ^= true);
+		}
+	}
+	public Banner bannerSettings;
+
 	public new void Start() {
 		base.Start();
 		spectrumSettings.Init();
 		distanceSettings.Init();
+		guidanceSettings.Init();
+		bannerSettings.Init();
 	}
 
 	public void OnEnable() {
