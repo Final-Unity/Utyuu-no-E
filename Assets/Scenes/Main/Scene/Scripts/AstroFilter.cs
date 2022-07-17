@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
+using System.Collections.Generic;
 
 [ExecuteAlways]
 public class AstroFilter : MonoBehaviour {
 	[Expandable] public Astro astro;
 	Image image;
 	Button button;
+	bool clicked = false;
 
 	[NonSerialized] [Range(0, 1)] public float targetAlpha = 0;
 	[NonSerialized] public float alphaChangingRate = 1;
@@ -28,13 +30,24 @@ public class AstroFilter : MonoBehaviour {
 		}
 	}
 
+	public void OnClick() {
+		var banner = FindObjectOfType<MainUI>()?.bannerSettings;
+		if(banner == null)
+			return;
+		if(astro.isTarget && !clicked)
+			banner.Prompt(astro.banner);
+		clicked = true;
+		banner.Prompt(astro.description);
+	}
+
 	public void Start() {
 		if(!Application.isPlaying)
 			return;
 		OnEdit();
 		image = GetComponent<Image>();
-		button = GetComponent<Button>();
 		image.color = new Color(1, 1, 1, 0);
+		button = GetComponent<Button>();
+		button.onClick.AddListener(OnClick);
 	}
 
 	void UpdateColor() {

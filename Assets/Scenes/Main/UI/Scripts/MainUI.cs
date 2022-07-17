@@ -117,22 +117,45 @@ public class MainUI : UI {
 
 	[Serializable]
 	public class Banner {
-		public Button banner;
+		public RectTransform banner;
 		public TextMeshProUGUI text;
+		public Button confirmButton;
+		List<string> queue = new List<string>();
+		string current = null;
+		bool skip = false;
+		[Range(.001f, .2f)] public float typingInterval = .03f;
 
 		public bool Visibility {
 			get => banner.gameObject.activeSelf;
 			set => banner.gameObject.SetActive(value);
 		}
 
+		public IEnumerator<object> Update() {
+			while(true) {
+				yield return new WaitUntil(() => queue.Count != 0);
+				Visibility = true;
+				current = queue[0];
+				queue.RemoveAt(0);
+				while(current.Length != 0 && !skip) {
+					text.text += current[0];
+					current = current.Substring(1);
+					yield return new WaitForSeconds(typingInterval);
+				}
+				yield return new WaitUntil(() => skip);
+				skip = false;
+				current = null;
+				Visibility = false;
+				text.text = "";
+			}
+		}
+
 		public void Prompt(string value) {
-			text.text = value;
-			Visibility = true;
+			queue.Add(value);
 		}
 
 		public void Init() {
 			Visibility = false;
-			banner.onClick.AddListener(() => Visibility ^= true);
+			confirmButton.onClick.AddListener(() => skip = true);
 		}
 	}
 	public Banner bannerSettings;
@@ -147,5 +170,10 @@ public class MainUI : UI {
 
 	public void OnEnable() {
 		StartCoroutine(RefreshSpectrum());
+		StartCoroutine(bannerSettings.Update());
+	}
+
+	public void OnDisable() {
+		StopAllCoroutines();
 	}
 }
