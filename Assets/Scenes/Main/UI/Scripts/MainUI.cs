@@ -20,6 +20,7 @@ public class MainUI : UI {
 			public RectTransform anchor;
 		}
 		[SerializeField] public TelescopeAnchor[] telescopeAnchors;
+		public Telescope currentTelescope => telescopeAnchors[index].telescope;
 
 		public int indexRange => telescopeAnchors.Length;
 		public int Index {
@@ -33,6 +34,7 @@ public class MainUI : UI {
 				selection.SetSize(segment.anchor.rect.size);
 				hud.sprite = segment.telescope.hudSprite;
 				indicator.text = segment.telescope.name;
+				FindObjectOfType<AstroManager>().UpdateAstros();
 			}
 		}
 		public void Prev() => --Index;
@@ -76,6 +78,7 @@ public class MainUI : UI {
 		private void OnSliderValueChange(float value) {
 			slider.value = (int)value;
 			indicator.text = ValueExpr;
+			FindObjectOfType<AstroManager>().UpdateAstros();
 		}
 
 		public void Init() {
