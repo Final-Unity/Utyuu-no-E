@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
-using System.Collections.Generic;
 
 [ExecuteAlways]
 public class AstroFilter : MonoBehaviour {
@@ -13,7 +12,7 @@ public class AstroFilter : MonoBehaviour {
 
 	[NonSerialized] [Range(0, 1)] public float targetAlpha = 0;
 	[NonSerialized] public float alphaChangingRate = 1;
-	const float alphaThreshold = .1f;
+	const float alphaThreshold = .5f;
 
 	public void OnEdit() {
 		name = astro?.name;
@@ -28,6 +27,7 @@ public class AstroFilter : MonoBehaviour {
 					fitter.aspectRatio = ratio;
 			}
 		}
+		(transform as RectTransform).SetSize(new Vector2(0, astro.height));
 	}
 
 	public void OnClick() {

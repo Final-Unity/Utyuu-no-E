@@ -5,6 +5,7 @@ using NaughtyAttributes;
 public class Astro : ScriptableObject {
 	public new string name;
 	[ShowAssetPreview] public Sprite sprite;
+	[Range(50, 500)] public float height;
 	public Vector2Int visibleRange;
 	public Telescope[] visibleTelescopes;
 	[ResizableTextArea] public string description;

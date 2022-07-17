@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cat's Eye Nebula
   sprite: {fileID: 21300000, guid: 4ab18f5bd1210bd4e8a09dd7d26a7904, type: 3}
+  height: 182
   visibleRange: {x: 5000, y: 6000}
   visibleTelescopes:
   - {fileID: 11400000, guid: 7da61ea40cc592c4c8ef84a0142a8024, type: 2}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tarantula Nebula
   sprite: {fileID: 21300000, guid: 5066bc6f872a6404db3d3f395b2951c3, type: 3}
+  height: 253
   visibleRange: {x: 100000, y: 250000}
   visibleTelescopes:
   - {fileID: 11400000, guid: b4d4d1d1aa1d5d9498f90e479ca8a489, type: 2}

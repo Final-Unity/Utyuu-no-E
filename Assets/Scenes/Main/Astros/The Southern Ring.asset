@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: The Southern Ring
   sprite: {fileID: 21300000, guid: f52b1456ceccdeb43bc60271790a1ef6, type: 3}
+  height: 271
   visibleRange: {x: 1500, y: 2500}
   visibleTelescopes:
   - {fileID: 11400000, guid: 56590d026e48f7a40a25d1f7d2a2175f, type: 2}

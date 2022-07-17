@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Stephan's Quintet
   sprite: {fileID: 21300000, guid: 66e704b992e05f546b37b8f156b8a3ea, type: 3}
+  height: 435
   visibleRange: {x: 250000000, y: 300000000}
   visibleTelescopes:
   - {fileID: 11400000, guid: 56590d026e48f7a40a25d1f7d2a2175f, type: 2}
