@@ -8,10 +8,18 @@ public class MainCamera : MonoBehaviour {
 	Vector2 lastDrag;
 	static int uiLayer;
 	new Camera camera;
+	RectTransform rt;
+	public RectTransform scene;
 
 	public void Start() {
 		uiLayer = LayerMask.NameToLayer("UI");
 		camera = GetComponent<Camera>();
+		rt = transform as RectTransform;
+		Vector3 vmin = camera.ViewportToWorldPoint(Vector2.one * -.5f),
+			vmax = camera.ViewportToWorldPoint(Vector2.one * .5f),
+			diagonal = vmax - vmin;
+		Vector2 size = transform.worldToLocalMatrix.MultiplyVector(diagonal);
+		rt.SetSize(size);
 	}
 
 	static bool PointerOverUI() {
@@ -44,10 +52,20 @@ public class MainCamera : MonoBehaviour {
 		lastDrag = Input.mousePosition;
 	}
 
+	static float RangeOffset(Vector2 range, float x) {
+		return x - Mathf.Clamp(x, range.x, range.y);
+	}
+
 	public void OnDrag(Vector2 delta) {
 		var from = camera.ScreenToWorldPoint(Vector2.zero);
 		var to = camera.ScreenToWorldPoint(delta);
 		transform.position += from - to;
+		Rect sceneRect = scene.WorldRect(), selfRect = rt.WorldRect();
+		Vector2 xRange = new Vector2(sceneRect.xMin, sceneRect.xMax);
+		Vector2 yRange = new Vector2(sceneRect.yMin, sceneRect.yMax);
+		float xComp = -(RangeOffset(xRange, selfRect.xMin) + RangeOffset(xRange, selfRect.xMax));
+		float yComp = -(RangeOffset(yRange, selfRect.yMin) + RangeOffset(yRange, selfRect.yMax));
+		transform.position += new Vector3(xComp, yComp, 0);
 	}
 
 	public void Update() {

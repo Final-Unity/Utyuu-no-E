@@ -5,6 +5,19 @@ public static class UIAux {
 		rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size.x);
 		rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size.y);
 	}
+
+	public static Rect WorldRect(this RectTransform rt) {
+		Vector3[] corners = new Vector3[4];
+		rt.GetWorldCorners(corners);
+		// Get the bottom left corner.
+		Vector3 position = corners[0];
+
+		Vector2 size = new Vector2(
+			rt.lossyScale.x * rt.rect.size.x,
+			rt.lossyScale.y * rt.rect.size.y);
+
+		return new Rect(position, size);
+	}
 }
 
 public class UI : MonoBehaviour {
