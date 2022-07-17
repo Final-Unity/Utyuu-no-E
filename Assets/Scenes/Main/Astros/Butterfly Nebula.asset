@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Butterfly Nebula
+  m_EditorClassIdentifier: 
+  name: Butterfly Nebula
+  sprite: {fileID: 21300000, guid: 72f2d5d14aa86404ba793d64131ff2f6, type: 3}
+  visibleRange: {x: 3000, y: 4000}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: 7da61ea40cc592c4c8ef84a0142a8024, type: 2}
+  description: "NGC 6302\_(also known as the\_Bug Nebula,\_Butterfly Nebula, or\_Caldwell
+    69) is a\_bipolar\_planetary nebula\_in the constellation\_Scorpius. The structure
+    in the nebula is among the most complex ever observed in planetary nebulae. The
+    spectrum of NGC 6302 shows that its central\_star\_is one of the hottest stars
+    known, with a surface temperature in excess of 250,000 degrees Celsius, implying
+    that the star from which it formed must have been very large.\r"
+  isTarget: 1
+  guidance: "What I wanted, was what left me behind. So, I seeking, searching, in
+    the ocean of immensity \_And so, I found, found reality 2,100 light years away,
+    \_In the never-ending spiral of those two dying stars, \_In the endless days
+    and years that erupt and swell, \_I found the most beautiful butterfly in the
+    universe.\r"
+  banner: "\"The butterfly used to be a cat, but now it is just a butterfly \_\nThe
+    butterfly is butterfly, butterfly cannot become the cat.\"\r"
