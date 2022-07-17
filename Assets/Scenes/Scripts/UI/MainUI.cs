@@ -8,35 +8,49 @@ using NaughtyAttributes;
 public class MainUI : UI {
 	[Serializable]
 	public class Spectrum {
-		public LayoutElement sliderTrackLeft, sliderTrackRight;
+		public RectTransform selection;
 		[Label("Index Indicator")] public TextMeshProUGUI indicator;
-		public Button leftButton;
-		public Button rightButton;
+		public Button prevButton;
+		public Button nextButton;
+		public Image hud;
 		[Range(0, 5)] public int index;
-		public List<string> spectrums;
 
-		public int indexRange => spectrums.Count;
+		[Serializable]
+		public struct Segment {
+			public string name;
+			public RectTransform anchor;
+			public Sprite hud;
+		}
+		public List<Segment> segments;
+
+		public int indexRange => segments.Count;
 		public int Index {
 			get => index;
 			set {
 				if(value < 0 || value >= indexRange)
 					return;
 				index = value;
-				sliderTrackLeft.flexibleWidth = value;
-				sliderTrackRight.flexibleWidth = indexRange - value - 1;
-				indicator.text = spectrums[value];
+				var segment = segments[index];
+				selection.position = segment.anchor.position;
+				selection.SetSize(segment.anchor.rect.size);
+				hud.sprite = segment.hud;
+				indicator.text = segment.name;
 			}
 		}
 		public void Prev() => --Index;
 		public void Next() => ++Index;
 
 		public void Init() {
-			Index = index;
-			leftButton.onClick.AddListener(Prev);
-			rightButton.onClick.AddListener(Next);
+			prevButton.onClick.AddListener(Prev);
+			nextButton.onClick.AddListener(Next);
 		}
 	}
 	public Spectrum spectrumSettings;
+
+	private IEnumerator<object> RefreshSpectrum() {
+		yield return new WaitForEndOfFrame();
+		yield return spectrumSettings.Index = spectrumSettings.Index;
+	}
 
 	[Serializable]
 	public class Distance {
@@ -62,9 +76,61 @@ public class MainUI : UI {
 	}
 	public Distance distanceSettings;
 
+	[Serializable]
+	public class Guidance {
+		public Button button;
+		public RectTransform box;
+		public TextMeshProUGUI text;
+
+		public bool Visibility {
+			get => box.gameObject.activeSelf;
+			set => box.gameObject.SetActive(value);
+		}
+
+		public void Prompt(string value) {
+			text.text = value;
+			Visibility = true;
+		}
+
+		public void Init() {
+			Visibility = false;
+			button.onClick.AddListener(() => Visibility ^= true);
+		}
+	}
+	public Guidance guidanceSettings;
+
+
+	[Serializable]
+	public class Banner {
+		public Button banner;
+		public TextMeshProUGUI text;
+
+		public bool Visibility {
+			get => banner.gameObject.activeSelf;
+			set => banner.gameObject.SetActive(value);
+		}
+
+		public void Prompt(string value) {
+			text.text = value;
+			Visibility = true;
+		}
+
+		public void Init() {
+			Visibility = false;
+			banner.onClick.AddListener(() => Visibility ^= true);
+		}
+	}
+	public Banner bannerSettings;
+
 	public new void Start() {
 		base.Start();
 		spectrumSettings.Init();
 		distanceSettings.Init();
+		guidanceSettings.Init();
+		bannerSettings.Init();
+	}
+
+	public void OnEnable() {
+		StartCoroutine(RefreshSpectrum());
 	}
 }
