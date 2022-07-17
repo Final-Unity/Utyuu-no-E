@@ -72,8 +72,8 @@
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\MetaAttributes\MetaAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes\ShowAssetPreviewAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\MetaAttributes\OnValueChangedAttribute.cs" />
-    <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes\SortingLayerAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes\MinMaxSliderAttribute.cs" />
+    <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes\SortingLayerAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes\InputAxisAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\DrawerAttributes_SpecialCase\SpecialCaseDrawerAttribute.cs" />
     <Compile Include="Library\PackageCache\com.dbrizov.naughtyattributes@8a8fa5a965\Scripts\Core\MetaAttributes\ReadOnlyAttribute.cs" />

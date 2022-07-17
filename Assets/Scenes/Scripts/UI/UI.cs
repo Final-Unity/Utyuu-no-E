@@ -1,15 +1,19 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class UI : MonoBehaviour {
 	public static UI currentActive = null;
 
 	[SerializeField] bool active = false;
+
 	public bool Active {
 		get => active;
 		set {
 			if(value) {
-				if(currentActive != null)
+				if(currentActive != null) {
 					currentActive.Active = false;
+					currentActive = null;
+				}
 			}
 			active = value;
 			gameObject.SetActive(active);
