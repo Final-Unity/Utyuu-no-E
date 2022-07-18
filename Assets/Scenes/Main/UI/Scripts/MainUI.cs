@@ -117,6 +117,8 @@ public class MainUI : UI {
 
 	[Serializable]
 	public class Banner {
+		[NonSerialized] public MainUI main;
+
 		public RectTransform banner;
 		public TextMeshProUGUI text;
 		public Button confirmButton;
@@ -130,8 +132,11 @@ public class MainUI : UI {
 			set => banner.gameObject.SetActive(value);
 		}
 
-		public IEnumerator<object> Update() {
+		public IEnumerator<object> UpdateText() {
+			queue = new List<string>();
+			current = null;
 			while(true) {
+				text.text = "";
 				yield return new WaitUntil(() => queue.Count != 0);
 				Visibility = true;
 				current = queue[0];
@@ -141,11 +146,14 @@ public class MainUI : UI {
 					current = current.Substring(1);
 					yield return new WaitForSeconds(typingInterval);
 				}
+				if(main.ended) {
+					main.fin.Active = true;
+					break;
+				}
 				yield return new WaitUntil(() => skip);
 				skip = false;
 				current = null;
 				Visibility = false;
-				text.text = "";
 			}
 		}
 
@@ -160,17 +168,37 @@ public class MainUI : UI {
 	}
 	public Banner bannerSettings;
 
+	[Header("Game Life")]
+	[ResizableTextArea] public string[] beginningText;
+	[ResizableTextArea] public string[] endingText;
+	bool ended = false;
+	public UI fin;
+
+	public void BeginGame() {
+		foreach(var line in beginningText)
+			bannerSettings.Prompt(line);
+	}
+	public void EndGame() {
+		if(ended)
+			return;
+		foreach(var line in endingText)
+			bannerSettings.Prompt(line);
+		ended = true;
+	}
+
 	public new void Start() {
 		base.Start();
 		telescopeSettings.Init();
 		distanceSettings.Init();
 		guidanceSettings.Init();
+		bannerSettings.main = this;
 		bannerSettings.Init();
 	}
 
 	public void OnEnable() {
 		StartCoroutine(RefreshSpectrum());
-		StartCoroutine(bannerSettings.Update());
+		StartCoroutine(bannerSettings.UpdateText());
+		BeginGame();
 	}
 
 	public void OnDisable() {

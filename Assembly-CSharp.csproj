@@ -63,6 +63,8 @@
     <Compile Include="Assets\Scenes\Main\UI\Scripts\UI.cs" />
     <Compile Include="Assets\Scenes\Main\Scene\Scripts\MainCamera.cs" />
     <Compile Include="Assets\Scenes\Main\Data\Astro.cs" />
+    <Compile Include="Assets\Scenes\Main\Scene\Scripts\ImageFader.cs" />
+    <Compile Include="Assets\Scenes\Main\UI\Scripts\FinUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

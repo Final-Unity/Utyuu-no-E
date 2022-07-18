@@ -4,19 +4,23 @@ using UnityEngine.UI;
 using NaughtyAttributes;
 
 [ExecuteAlways]
+[RequireComponent(typeof(Image), typeof(Button), typeof(ImageFader))]
 public class AstroFilter : MonoBehaviour {
 	[Expandable] public Astro astro;
+	[NonSerialized] public AstroManager manager;
 	Image image;
 	Button button;
+	ImageFader fader;
+	public float targetAlpha {
+		get => fader.targetAlpha;
+		set => fader.targetAlpha = value;
+	}
 	bool clicked = false;
-
-	[NonSerialized] [Range(0, 1)] public float targetAlpha = 0;
-	[NonSerialized] public float alphaChangingRate = 1;
-	const float alphaThreshold = .5f;
 
 	public void OnEdit() {
 		name = astro?.name;
 		image = GetComponent<Image>();
+		fader = GetComponent<ImageFader>();
 		if(image != null) {
 			image.sprite = astro?.sprite;
 			if(image.sprite != null) {
@@ -38,6 +42,7 @@ public class AstroFilter : MonoBehaviour {
 			banner.Prompt(astro.banner);
 		clicked = true;
 		banner.Prompt(astro.description);
+		manager.FinishAstro(this);
 	}
 
 	public void Start() {
@@ -48,13 +53,7 @@ public class AstroFilter : MonoBehaviour {
 		image.color = new Color(1, 1, 1, 0);
 		button = GetComponent<Button>();
 		button.onClick.AddListener(OnClick);
-	}
-
-	void UpdateColor() {
-		Color color = image.color;
-		color.a += (targetAlpha - color.a) * alphaChangingRate * Time.deltaTime;
-		image.color = color;
-		button.enabled = color.a >= alphaThreshold;
+		fader = GetComponent<ImageFader>();
 	}
 
 	public void Update() {
@@ -62,6 +61,5 @@ public class AstroFilter : MonoBehaviour {
 			OnEdit();
 			return;
 		}
-		UpdateColor();
 	}
 }
