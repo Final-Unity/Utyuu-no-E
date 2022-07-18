@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Andromeda Galaxy
+  m_EditorClassIdentifier: 
+  name: Andromeda Galaxy
+  sprite: {fileID: 21300000, guid: c56e4df7258308247812fb4aaee145f2, type: 3}
+  height: 331
+  visibleRange: {x: 2000000, y: 3000000}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: b4d4d1d1aa1d5d9498f90e479ca8a489, type: 2}
+  description: "The Andromeda galaxy, also known as Messier 31 and cataloged as M31
+    and NGC 224, is about 2.5 million light-years from Earth and is the nearest galaxy
+    other than the Magellanic Cloud (earth's companion galaxy to the Milky Way).\r"
+  isTarget: 0
+  guidance: 
+  banner: 

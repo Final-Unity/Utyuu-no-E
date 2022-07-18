@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Elephant's Trunk Nebula
+  m_EditorClassIdentifier: 
+  name: Elephant's Trunk Nebula
+  sprite: {fileID: 21300000, guid: 25917bc639543744c9803d8a2270f753, type: 3}
+  height: 188
+  visibleRange: {x: 2000, y: 3200}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: b4d4d1d1aa1d5d9498f90e479ca8a489, type: 2}
+  description: "Located within the massive free gas region IC 1396 in the constellation
+    Cepheus, an area of high concentration of interstellar matter about 2,400 light-years
+    from Earth. The nebula, known as IC 1396A, appears as a dark, dense ball. It
+    is known colloquially as the Elephantin tube Nebula because it is a dark patch
+    with bright, sinuous edges at visible wavelengths.\r"
+  isTarget: 0
+  guidance: 
+  banner: 

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Stephan's Quintet
+  m_EditorClassIdentifier: 
+  name: Stephan's Quintet
+  sprite: {fileID: 21300000, guid: 66e704b992e05f546b37b8f156b8a3ea, type: 3}
+  height: 435
+  visibleRange: {x: 250000000, y: 300000000}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: 56590d026e48f7a40a25d1f7d2a2175f, type: 2}
+  description: Located about 290 million light-years away in the constellation Pegasus,
+    the Stephan Quintuple was the first galaxy cluster to be discovered. Four of
+    the five galaxies in the cluster are trapped in repeated "cosmic dances" close
+    to each other.
+  isTarget: 1
+  guidance: I searched for the cat with my eyes. I searched for a long, long time
+    and found nothing. Sometimes I would dream of colorful clouds, but I never knew
+    what those were, so maybe my cat was in the clouds. One day I dreamed of a blue
+    eye. As I closed my eyes, he opened it toward me. He said he was senile to see
+    me for 650 light years.
+  banner: "He said that cat is everywhere, and I said that at least it's not with
+    me. He sighed and said, \"Naturally, cat is not in dreams. Open your eyes and
+    look hard into nothing, the emptiness is actually the reality, and the void is
+    actually the truth.\r"

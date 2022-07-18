@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Tarantula Nebula
+  m_EditorClassIdentifier: 
+  name: Tarantula Nebula
+  sprite: {fileID: 21300000, guid: 5066bc6f872a6404db3d3f395b2951c3, type: 3}
+  height: 253
+  visibleRange: {x: 100000, y: 250000}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: b4d4d1d1aa1d5d9498f90e479ca8a489, type: 2}
+  description: "NGC 2070 is a diffuse Nebula in the Large Magellan Galaxy in the
+    constellation Dorados, also known as the Tarantula Nebula or 30 Dorados. The
+    Tarantula Nebula was first thought to be a star until 1751, when French astronomer
+    Nicolas Louis-Laci discovered that it was in fact a nebula.\r"
+  isTarget: 0
+  guidance: 
+  banner: 

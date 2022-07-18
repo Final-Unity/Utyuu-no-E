@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281bbf6e9848cba4c936bfc2f58dbd1b, type: 3}
+  m_Name: Helix Nebula
+  m_EditorClassIdentifier: 
+  name: Helix Nebula
+  sprite: {fileID: 21300000, guid: b0159bc50a356c34bb5151d7291f132f, type: 3}
+  height: 233
+  visibleRange: {x: 600, y: 700}
+  visibleTelescopes:
+  - {fileID: 11400000, guid: b4d4d1d1aa1d5d9498f90e479ca8a489, type: 2}
+  description: "The blue pupil and white eye ball are surrounded by flesh-colored
+    eyelids, similar to the eye, but the eye of God is actually so vast that it takes
+    five to six years for the light to travel from one side to the other.  The object
+    is actually a shell of gas and dust blown from a dim star in the central constellation
+    of Aquarius.\r"
+  isTarget: 1
+  guidance: "\"So, I began my search again, seeking, searching in the endless ocean
+    \_\nThis time, I found it again, the cat \_\nIn the cosmic ballroom, four clusters
+    of stars disperse and converge, performing a graceful cosmic dance for 80 million
+    years\"\r"
+  banner: "\"I arrived at the ballroom of my dreams, feeling the grace and rhythm
+    of a quintet \_\nIt is the breath of the universe, the pulse of the planets\"\r"
