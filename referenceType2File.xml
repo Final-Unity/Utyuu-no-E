@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>842f43ac94b4b4f72ac0898650ddcc44</guid>
+    <fileName>Assets/Cleaner/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2017-03-17T04:41:26+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>805140a4856714e288ea84985d3023df</guid>
+    <fileName>Assets/Cleaner/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2017-03-17T04:41:26+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>202c278a17939b24c8b79c0ee1f94d8f</guid>
+    <fileName>Assets/Cleaner/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2017-03-17T04:41:26+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0d05386265df34bac8d0b6df44aa494c</guid>
+    <fileName>Assets/Cleaner/Editor/CollectionData.cs</fileName>
+    <timeStamp>2017-03-17T04:44:11+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>74eec3bfba0594259ac2843353c082a3</guid>
+    <fileName>Assets/Cleaner/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2017-03-17T04:41:26+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>2c4f01a79a77a45a9a84004cc2b78098</guid>
+    <fileName>Assets/Cleaner/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2017-03-17T04:41:26+08:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>281bbf6e9848cba4c936bfc2f58dbd1b</guid>
+    <fileName>Assets/Scenes/Main/Data/Astro.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0399149+08:00</timeStamp>
+    <typeFullName>
+      <string>Astro</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9466695aaf20db24fb39ec7ac18f9850</guid>
+    <fileName>Assets/Scenes/Main/Data/Telescope.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0409316+08:00</timeStamp>
+    <typeFullName>
+      <string>Telescope</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cb1b9ee01da577e49b7621145fade6bd</guid>
+    <fileName>Assets/Scenes/Main/Scene/Scripts/AstroFilter.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0484396+08:00</timeStamp>
+    <typeFullName>
+      <string>AstroFilter</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1070bb20ceb00fe42b5f6261bcb204cd</guid>
+    <fileName>Assets/Scenes/Main/Scene/Scripts/AstroManager.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0488927+08:00</timeStamp>
+    <typeFullName>
+      <string>AstroManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cd08045679cee894e90dcc33278f115d</guid>
+    <fileName>Assets/Scenes/Main/Scene/Scripts/ImageFader.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0493956+08:00</timeStamp>
+    <typeFullName>
+      <string>ImageFader</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d841c9642686aaa4ea97131451304bfb</guid>
+    <fileName>Assets/Scenes/Main/Scene/Scripts/MainCamera.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.0499146+08:00</timeStamp>
+    <typeFullName>
+      <string>MainCamera</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>77a6e0d1e71e246409efb69cb50157cf</guid>
+    <fileName>Assets/Scenes/Main/UI/Scripts/FinUI.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.1486822+08:00</timeStamp>
+    <typeFullName>
+      <string>FinUI</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>713a45668ba779c4abd07a1c7bf1e9e7</guid>
+    <fileName>Assets/Scenes/Main/UI/Scripts/MainUI.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.1491849+08:00</timeStamp>
+    <typeFullName>
+      <string>MainUI</string>
+      <string>MainUI+TelescopeSettings</string>
+      <string>MainUI+Distance</string>
+      <string>MainUI+Guidance</string>
+      <string>MainUI+Banner</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6d625e73f01359b4bb19e7ef57c4e48c</guid>
+    <fileName>Assets/Scenes/Main/UI/Scripts/UI.cs</fileName>
+    <timeStamp>2022-07-18T09:58:15.1497051+08:00</timeStamp>
+    <typeFullName>
+      <string>UIAux</string>
+      <string>UI</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+</ArrayOfTypeDate>
