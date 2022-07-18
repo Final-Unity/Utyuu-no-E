@@ -5,12 +5,21 @@ using NaughtyAttributes;
 
 [ExecuteAlways]
 [RequireComponent(typeof(Image), typeof(Button), typeof(ImageFader))]
+[RequireComponent(typeof(AudioSource))]
 public class AstroFilter : MonoBehaviour {
+	public static AudioClip click, clickRight;
+
+	public void Awake() {
+		click = Resources.Load<AudioClip>("Clicking Astro");
+		clickRight = Resources.Load<AudioClip>("Clicking Right");
+	}
+
 	[Expandable] public Astro astro;
 	[NonSerialized] public AstroManager manager;
 	Image image;
 	Button button;
 	ImageFader fader;
+	AudioSource audioSource;
 	public float targetAlpha {
 		get => fader.targetAlpha;
 		set => fader.targetAlpha = value;
@@ -38,8 +47,11 @@ public class AstroFilter : MonoBehaviour {
 		var banner = FindObjectOfType<MainUI>()?.bannerSettings;
 		if(banner == null)
 			return;
-		if(astro.isTarget && !clicked)
+		if(astro.isTarget && !clicked) {
 			banner.Prompt(astro.banner);
+			audioSource.PlayOneShot(clickRight);
+		}
+		else audioSource.PlayOneShot(click);
 		clicked = true;
 		banner.Prompt(astro.description);
 		manager.FinishAstro(this);
@@ -54,6 +66,7 @@ public class AstroFilter : MonoBehaviour {
 		button = GetComponent<Button>();
 		button.onClick.AddListener(OnClick);
 		fader = GetComponent<ImageFader>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	public void Update() {
