@@ -122,8 +122,21 @@ public class MainUI : UI {
 		public RectTransform banner;
 		public TextMeshProUGUI text;
 		public Button confirmButton;
-		List<string> queue = new List<string>();
-		string current = null;
+		public TMP_FontAsset normalFont;
+		public TMP_FontAsset abnormalFont;
+		public struct Line {
+			public string content;
+			public bool abnormal;
+
+			public static implicit operator Line(string str) {
+				return new Line {
+					content = str,
+					abnormal = false
+				};
+			}
+		}
+		List<Line> queue;
+		string current;
 		bool skip = false;
 		[Range(.001f, .2f)] public float typingInterval = .03f;
 
@@ -133,32 +146,36 @@ public class MainUI : UI {
 		}
 
 		public IEnumerator<object> UpdateText() {
-			queue = new List<string>();
+			queue = new List<Line>();
 			current = null;
 			while(true) {
 				text.text = "";
 				yield return new WaitUntil(() => queue.Count != 0);
 				Visibility = true;
-				current = queue[0];
+				text.font = queue[0].abnormal ? abnormalFont : normalFont;
+				current = queue[0].content;
 				queue.RemoveAt(0);
 				while(current.Length != 0 && !skip) {
 					text.text += current[0];
 					current = current.Substring(1);
 					yield return new WaitForSeconds(typingInterval);
 				}
-				if(main.ended) {
-					main.fin.Active = true;
-					break;
-				}
 				yield return new WaitUntil(() => skip);
 				skip = false;
 				current = null;
 				Visibility = false;
+				if(main.ended && queue.Count == 0) {
+					main.fin.Active = true;
+					break;
+				}
 			}
 		}
 
-		public void Prompt(string value) {
-			queue.Add(value);
+		public void Prompt(string content, bool abnormal = false) {
+			queue.Add(new Line {
+				content = content,
+				abnormal = abnormal
+			});
 		}
 
 		public void Init() {
@@ -176,13 +193,13 @@ public class MainUI : UI {
 
 	public void BeginGame() {
 		foreach(var line in beginningText)
-			bannerSettings.Prompt(line);
+			bannerSettings.Prompt(line, true);
 	}
 	public void EndGame() {
 		if(ended)
 			return;
 		foreach(var line in endingText)
-			bannerSettings.Prompt(line);
+			bannerSettings.Prompt(line, true);
 		ended = true;
 	}
 

@@ -48,7 +48,7 @@ public class AstroFilter : MonoBehaviour {
 		if(banner == null)
 			return;
 		if(astro.isTarget && !clicked) {
-			banner.Prompt(astro.banner);
+			banner.Prompt(astro.banner, true);
 			audioSource.PlayOneShot(clickRight);
 		}
 		else audioSource.PlayOneShot(click);

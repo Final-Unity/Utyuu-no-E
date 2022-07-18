@@ -3837,6 +3837,8 @@ MonoBehaviour:
     banner: {fileID: 1645323421}
     text: {fileID: 1291362003}
     confirmButton: {fileID: 1388525748}
+    normalFont: {fileID: 11400000, guid: 745f5dd0da7570143933013d0c8d09be, type: 2}
+    abnormalFont: {fileID: 11400000, guid: 787a7926e16ed1c4abe5c69dda8008b9, type: 2}
     typingInterval: 0.04
   beginningText:
   - 'It''s never just me.
